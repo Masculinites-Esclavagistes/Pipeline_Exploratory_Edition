@@ -22,11 +22,10 @@ This file contains the steps of the MEGV pipeline to transform the result of the
        ├── tei_header.xml/                         ← Un modèle de teiHeader à compléter
        ├── 0_remove_artefact_zones.py/             
        ├── 1_clean_tei.py
-       ├── 2_compile_tei_by_file.py 
-       ├── 3_correct_tei.py
-       ├── 4_validation_tei.py                     ← 0 à 6 : Scripts python
-       ├── 5_compile_files2corpus.py
-       ├── 6_divide_xml.py
+       ├── 2_compile_tei_by_file.py                ← 0 à 5 : Scripts python
+       ├── 3_correct_and_validate_tei.py           
+       ├── 4_compile_files2corpus.py
+       ├── 5_divide_xml.py
        └── output/
            ├── megv_corpus.xml                     ← fichier XML-TEI final                   
            └── parts/                              ← fichiers XML-TEI finaux si trop lourds
@@ -39,30 +38,27 @@ To use this pipeline:
 - Add your inferred folders to "Pipeline_MEGV/data". ⚠️ Be careful to add only a COPY of your files to data, not the original transcripts, which will be permanently modified after the pipeline is executed.
 
 - If necessary, change the information contained in the ‘’Pipeline_MEGV/TEI2XML/tei_header.xml‘’ file
-    => l. 8 <title> : Title of the corpus
-    => l. 95 <MsIdentifier> : Repository informations
-    =>  l. 175 <revisionDesc> : Name and date of the creation of the TEI P5 file
+    =>  <title> : Title of the corpus
+    => <MsIdentifier> : Repository informations
+    => <revisionDesc> : Name and date of the creation of the TEI P5 file
       
 - in your Terminal :
   - activate a virtual environment such as yaltaienv, if you have installed the rtk environment on your computer.
   - go to "Pipeline_MEGV/TEI2XML", then run the various scripts one after the other:
 
     0_remove_artefact_zones.py
-      => Deletes the content of DigitizationArtefactZone and StampZone, preserve other zones.
+      => Deletes the content of DigitizationArtefactZone and StampZone, preserve other zones ; converts MarginTextZone into <note place="margin"></note> ; normalizes <lb /> into <lb/>.
 
     1_clean_tei.py
-      => Cleans the .tei file by removing all tags, convert XML characters (& into "\&amp;" ; > into "\&gt;" ; < into "&lt" ; " into "\&quot;"; ' into "\&apos;"), and restructures by adding simple TEI tags like ‘‘\<p>‘‘ and ‘‘\<lb/>‘‘
+      => Cleans the .tei file by removing all tags (except <note>), converts XML characters (& into "\&amp;" ; > into "\&gt;" ; < into "&lt" ; " into "\&quot;"; ' into "\&apos;"), and restructures by adding simple TEI tags like ‘‘\<p>‘‘.
     
     2_compile_tei_by_file.py
-      => Group files by folder
+      => Group files by folder, creates a <pb/> tag corresponding to each image/file specifying the image path (folder/image) and the precise name of the corresponding .jpg file.
 
-    3_correct_tei.py
-      => Adds namespace and standard TEI structure
-
-    4_validation_tei.py
-      => Validates XML compliance
+    3_correct_and_validate_tei.py
+      => Adds namespace and standard TEI structure ; validates XML compliance
     
-    5_compile_files2corpus.py
+    4_compile_files2corpus.py
       -> Compile the complete corpus
 
     if necessary (more than 500 000 lines in your XML-TEI file will crash your HTML page) :

@@ -22,13 +22,12 @@ Pipeline_MEGV/
 ├── TEI2XML/                                   ← OCR (.tei) to XML-TEI compilation pipeline
 │   ├── README.md
 │   ├── tei_header.xml                         ← TEI header template (to be completed)
-│   ├── 0_remove_artefact_zones.py             ← Python scripts (0 to 6)
+│   ├── 0_remove_artefact_zones.py             ← Python scripts (0 to 5)
 │   ├── 1_clean_tei.py
 │   ├── 2_compile_tei_by_file.py 
-│   ├── 3_correct_tei.py
-│   ├── 4_validation_tei.py
-│   ├── 5_compile_files2corpus.py
-│   ├── 6_divide_xml.py
+│   ├── 3_correct_and_validate_tei.py
+│   ├── 4_compile_files2corpus.py
+│   ├── 5_divide_xml.py
 │   └── output/
 │       ├── megv_corpus.xml                    ← Final XML-TEI file                   
 │       └── parts/                             ← Split XML-TEI files (if too large)
@@ -199,7 +198,7 @@ dir. Marie Houllemare, [consultation date]
 - Improved documentation structure
 - Enhanced error handling
 
-**Version 1.0** - Initial release
+**Version 1.0** - Initial release 2024
 - Basic TEI2XML compilation
 - PDF generation without images
 

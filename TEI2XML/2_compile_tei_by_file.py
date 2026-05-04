@@ -4,7 +4,6 @@ from lxml import etree
 from pathlib import Path
 
 script_dir = Path(__file__).parent
-
 data_dir = script_dir.parent / "data"
 output_dir = script_dir.parent / "data"
 os.makedirs(output_dir, exist_ok=True)
@@ -22,25 +21,25 @@ for dossier in sorted(os.listdir(data_dir)):
     tei_files = [f for f in tei_files if re.search(r'_\d{4,5}\.tei$', f)]
     tei_files.sort(key=extract_num)
 
-    # Racine TEI vide
     root = etree.Element("TEI")
     body = etree.SubElement(root, "body")
 
     for tei_file in tei_files:
         tei_path = os.path.join(dossier_path, tei_file)
-        
-        # Ajouter la balise <pb corresp="..."/>
+
+        # Nom de base sans extension : ex. "FRCAOM06_COLE_241031A_0088"
+        base_name = tei_file[:-4]
+
+        # <pb corresp="dossier/base_name" facs="base_name.jpg"/>
         pb = etree.Element("pb")
-        pb.set("corresp", f"{dossier}/{tei_file[:-4]}")
+        pb.set("corresp", f"{dossier}/{base_name}")
+        pb.set("facs", f"{base_name}.jpg")
         body.append(pb)
 
-        # Lire contenu brut du fichier
         with open(tei_path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Enrober le contenu brut dans un élément temporaire
         try:
-            # On encapsule dans un élément temporaire
             temp = etree.fromstring(f"<wrapper>{content}</wrapper>")
             for child in temp:
                 body.append(child)
@@ -48,7 +47,6 @@ for dossier in sorted(os.listdir(data_dir)):
             print(f"[Erreur XML ignorée] Fichier: {tei_file} — {e}")
             continue
 
-    # Sauvegarder le fichier compilé
     output_path = os.path.join(output_dir, f"{dossier}.tei")
     with open(output_path, "wb") as f:
         f.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding="UTF-8"))
