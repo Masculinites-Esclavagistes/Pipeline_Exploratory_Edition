@@ -1,4 +1,4 @@
-da# Pipeline TEI vers PDF/HTML - Version 2.0
+# Pipeline TEI vers PDF/HTML - Version 2.0
 
 Pipeline de transformation XML-TEI avec **deux versions** :
 - 📄 **Sans images** → PDF léger pour partager

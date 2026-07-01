@@ -1,4 +1,4 @@
-# Pipeline-MEGV
+# Pipeline_Exploratory_Edition
 
 This repository contains the processing pipeline adapted to the needs of the MEGV project for handling OCR inference results from project corpora. The objective is to efficiently explore OCR results to select documents within large corpora, even with OCR noise, and produce a preliminary edition enabling full-text searches.
 
