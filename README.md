@@ -212,4 +212,4 @@ This pipeline was developed as part of the MEGV project ("Masculinités esclavag
 **Development**: Marion Philip (University of Geneva)  
 **AI Assistance**: ChatGPT (OpenAI), Claude (Anthropic)  
 **Project Direction**: Prof. Marie Houllemare  
-**Institution**: University of Geneva, Faculty of Humanities
+**Institution**: University of Geneva, SNSF
