@@ -14,7 +14,7 @@ Contact : marion.philip@unige.ch
 ### 1. Organiser vos données
 
 ```
-   Pipeline_MEGV/
+   Pipeline_Exploratory_Edition/
    └── data/                    ← Images
        ├── 175J10/              # Côtes autres fonds
        └── Anne_1780_COL_E_5/   # ANOM
@@ -129,7 +129,7 @@ background-color: #e7d9cb;  /* Couleur secondaire */
 
 **Citation** :
 ```
-MEGV Corpus
+Pipeline_Exploratory_Edition
 FNS (n°219753), Université de Genève, dir. Marie Houllemare, [date de consultation]
 ```
 

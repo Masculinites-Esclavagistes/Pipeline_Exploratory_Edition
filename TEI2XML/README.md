@@ -10,7 +10,7 @@ This file contains the steps of the MEGV pipeline to transform the result of the
 
 # 📁 Organisation of the pipeline files : 
 ```
- Pipeline_MEGV/
+ Pipeline_Exploratory_Edition/
    └── README.md
 
    └── data/                    ← Images
@@ -35,16 +35,16 @@ This file contains the steps of the MEGV pipeline to transform the result of the
 
 To use this pipeline: 
 
-- Add your inferred folders to "Pipeline_MEGV/data". ⚠️ Be careful to add only a COPY of your files to data, not the original transcripts, which will be permanently modified after the pipeline is executed.
+- Add your inferred folders to "Pipeline_Exploratory_Edition/data". ⚠️ Be careful to add only a COPY of your files to data, not the original transcripts, which will be permanently modified after the pipeline is executed.
 
-- If necessary, change the information contained in the ‘’Pipeline_MEGV/TEI2XML/tei_header.xml‘’ file
+- If necessary, change the information contained in the ‘’Pipeline_Exploratory_Edition/TEI2XML/tei_header.xml‘’ file
     =>  <title> : Title of the corpus
     => <MsIdentifier> : Repository informations
     => <revisionDesc> : Name and date of the creation of the TEI P5 file
       
 - in your Terminal :
   - activate a virtual environment such as yaltaienv, if you have installed the rtk environment on your computer.
-  - go to "Pipeline_MEGV/TEI2XML", then run the various scripts one after the other:
+  - go to "Pipeline_Exploratory_Edition/TEI2XML", then run the various scripts one after the other:
 
     0_remove_artefact_zones.py
       => Deletes the content of DigitizationArtefactZone and StampZone, preserve other zones ; converts MarginTextZone into <note place="margin"></note> ; normalizes <lb /> into <lb/>.
@@ -66,7 +66,7 @@ To use this pipeline:
     6_divide_xml.py
       => Divide the corpus into manageable parts which are saved in "output/parts".
 
-You should have one or more XML-TEI files created at the end of this first phase, in "Pipeline_MEGV/TEI2XML/output".
+You should have one or more XML-TEI files created at the end of this first phase, in "Pipeline_Exploratory_Edition/TEI2XML/output".
 
 
 
@@ -78,7 +78,7 @@ This pipeline was made with the help of ChatGPT and Claude IA, prompted and corr
 
 **Citation** :
 ```
-Pipeline-MEGV
+Pipeline_Exploratory_Edition
 Projet MEGV, FNS (n°219753), Université de Genève, dir. Marie Houllemare, [date de consultation]
 ```
 
