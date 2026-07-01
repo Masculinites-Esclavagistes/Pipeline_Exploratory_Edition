@@ -11,9 +11,9 @@ The pipeline:
 ## 📁 Organization of Pipeline-MEGV Files
 
 ```
-Pipeline_MEGV/
+Pipeline_Exploratory_Edition/
 ├── README.md
-├── Pipeline_MEGV.xpr                          ← Oxygen Project file
+├── Pipeline_Exploratory_Edition.xpr            ← Oxygen Project file
 
 ├── data/                                      ← Images (all corpora)
 │   ├── 175J10/                                  # MEGV corpus
@@ -177,7 +177,7 @@ This pipeline was developed with assistance from ChatGPT and Claude AI, prompted
 
 ### Citation
 ```
-Pipeline-MEGV
+Pipeline_Exploratory_Edition
 MEGV Project, FNS (n°219753), University of Geneva, 
 dir. Marie Houllemare, [consultation date]
 ```
